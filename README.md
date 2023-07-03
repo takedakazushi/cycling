@@ -33,4 +33,4 @@
 - 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
 - アプリケーションの実装に使用したgem/bootstrapのリファレンスなどの記載は不要です。
 - フリー素材として以下を使用
-- https://www.google.com/search?rlz=1C1TKQJ_jaJP1055JP1055&sxsrf=AB5stBh3Igi7HZvMy2HSX_6vSnXF6O49TQ:1688195668434&q=cycling+%E7%84%A1%E6%96%99%E7%94%BB%E5%83%8F&tbm=isch&source=univ&fir=HO8RSSEOLzUCnM%252C84-m9mE1DsE7jM%252C_%253BPFE0EJIJ6UJyCM%252CxGhCxnxnaQuSwM%252C_%253B7P6mef1VbOXaNM%252CWhSS0Lhq0mKjzM%252C_%253BLTOT-QPXMiqONM%252CZkJfBqrDtVkn3M%252C_%253BtLW9HhFr-XXgtM%252CZkJfBqrDtVkn3M%252C_%253BeoOXfrcJCC1T2M%252C84-m9mE1DsE7jM%252C_%253BYV-q0TPWl7Bu6M%252CHgj9TLNjQfMQ1M%252C_%253Bn40fTymt5aNNzM%252CKPJpHKWdeqif2M%252C_%253BAIweT-P4RMi48M%252CxJLyLhLFL5UK7M%252C_%253BYvQefUmOO14PWM%252Czke9vvj3yRhDFM%252C_&usg=AI4_-kQhnLhNtbKx6u8udj5mjDqwCAuzBg&sa=X&ved=2ahUKEwiT04L5-uz_AhVWk1YBHULLD2kQjJkEegQIGhAC&biw=1280&bih=601&dpr=1.5
+- Google画像検索による商用利用や改変利用が可能なライセンスのもののみ使用
