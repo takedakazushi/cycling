@@ -1,3 +1,14 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  devise_for :admins
+  devise_for :customers
+  scope module: :public do
+    root to: 'homes#top'
+    get '/about', to: 'homes#about'
+    get 'couse' => 'couse#index'
+    resources :customers, only: [:show, :index, :update, :edit]
+  end
+  # admin側ルーティング
+  namespace :admin do
+    get '' => 'homes#top'
+  end
 end
