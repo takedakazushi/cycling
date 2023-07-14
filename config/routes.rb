@@ -4,14 +4,12 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     get '/about', to: 'homes#about'
-    get 'couse' => 'couse#index'
     resources :customers, only: [:show, :index, :update, :edit]
-    resources :post_images, only: [:new, :create, :index, :show]
+    resources :post_images, only: [:new, :create, :index, :show, :destroy]
   end
   # admin側ルーティング
   namespace :admin do
     get '' => 'homes#top'
-    get 'couse' => 'couse#index'
     resources :customers, only: [:show, :index, :update, :edit]
   end
 end
