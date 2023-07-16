@@ -9,7 +9,6 @@
         <ul class="navbar-nav ml-auto">
 
 
-
     <% if customer_signed_in? %>
         <li>
         <%= link_to '投稿フォーム', new_post_image_path %>
@@ -18,7 +17,7 @@
             ようこそ、<%= current_customer.last_name %> さん</br>
           </li>
           <li class="ml-4">
-            <%= link_to customers_path,class: 'nav-link text-light' do %>
+            <%= link_to customer_path(current_customer.id),class: 'nav-link text-light' do %>
               マイページ
           <% end %>
         <li class="ml-4">

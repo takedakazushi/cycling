@@ -1,0 +1,7 @@
+<% if @model == 'customer' %>
+	<h3>Customer search for "<%= @content %>"</h3>
+  <%= render 'public/customers/index', customers: @records %>
+<% elsif @model == 'post_image' %>
+	<h3>PostImage search for "<%= @content %>"</h3>
+  <%= render 'public/post_images/index', post_images: @records %>
+<% end %>

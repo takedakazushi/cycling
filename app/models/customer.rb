@@ -4,6 +4,7 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :post_images, dependent: :destroy
+  has_many :post_comments, dependent: :destroy
 
   has_one_attached :profile_image
 
@@ -13,5 +14,17 @@ class Customer < ApplicationRecord
       profile_image.attach(io: File.open(file_path), filename: 'no_image.jpg', content_type: 'image/jpeg')
     end
     profile_image.variant(resize_to_limit:[width, height]).processed
+  end
+  
+  def self.search_for(content, method)
+    if method == 'perfect'
+      Customer.where(name: content)
+    elsif method == 'forward'
+      Customer.where('name LIKE ?', content + '%')
+    elsif method == 'backward'
+      Customer.where('name LIKE ?', '%' + content)
+    else
+      Customer.where('name LIKE ?', '%' + content + '%')
+    end
   end
 end

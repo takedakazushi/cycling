@@ -1,0 +1,22 @@
+<table class='table table-hover table-inverse'>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Caption</th>
+      <th>Couse_name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% post_images.each do |post_image| %>
+      <tr>
+        <td><%= link_to(post_image.customer) do %>
+          <%= image_tag post_image.customer.get_profile_image, size:'50x50' %>
+          <% end %>
+        </td>
+        <td><%= link_to post_image.caption,couse_name, class: "post_image_#{post_image.id}" %></td>
+        <td><%= post_image %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

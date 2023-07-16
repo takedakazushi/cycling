@@ -5,7 +5,10 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get '/about', to: 'homes#about'
     resources :customers, only: [:show, :index, :update, :edit]
-    resources :post_images, only: [:new, :create, :index, :show, :destroy]
+    resources :post_images  do
+      resources :post_comments, only: [:create, :destroy]
+    end
+  get '/search', to: 'searches#search'
   end
   # admin側ルーティング
   namespace :admin do

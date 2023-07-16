@@ -1,11 +1,21 @@
 <div class="container">
+<!-- ユーザーの詳細 -->
+<div>
+  <h3><%= @customer.id %></h3>
+  <%= image_tag @customer.get_profile_image(100,100) %>
+</div>
 
- <div class="p-3 mb-2 col-md-2 font-weight-bold bg-light text-dark">マイページ</div>
+<!-- ユーザーの投稿一覧 -->
 
-  <%= form_with model: @customer, url: customers_information_edit_path do |f| %>
-<table>
-  <tr>
-    <td><%= f.label :"登録情報" %></td>
-    <td><%= link_to "編集する", edit_customer_path, class: 'btn ml-5 mb-3 btn-success' %></td>
-  </tr>
-</table>
+<% @post_images.each do |post_image| %>
+<div>
+  <%= link_to post_image_path(post_image.id) do %>
+    <%= image_tag post_image.get_image %>
+  <% end %>
+  <p>投稿ユーザー画像：<%= image_tag post_image.customer.get_profile_image(100,100) %></p>
+  <p>コース名：<%= post_image.couse_name %></p>
+  <p>説明：<%= post_image.caption %></p>
+  <p>ユーザーネーム：<%= post_image.customer.last_name %></p>
+  <p><%= link_to "#{post_image.post_comments.count} コメント", post_image_path(post_image.id) %></p>
+</div>
+<% end %>

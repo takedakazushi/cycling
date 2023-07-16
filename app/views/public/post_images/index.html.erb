@@ -3,9 +3,10 @@
   <%= link_to post_image_path(post_image.id) do %>
     <%= image_tag post_image.get_image %>
   <% end %>
-    <p>投稿ユーザー画像：<%#= image_tag 'sample-author1.jpg' %></p>
+    <p>投稿画像：<%#= image_tag 'sample-author1.jpg' %></p>
     <p>コース名：<%= post_image.couse_name %></p>
     <p>説明：<%= post_image.caption %></p>
-    <p>ユーザーネーム：<%= post_image.couse_name %></p>
+    <p>ユーザーネーム：<%= post_image.customer.id %></p>
+    <p><%= link_to "#{post_image.post_comments.count} コメント", post_image_path(post_image.id) %></p>
   </div>
 <% end %>
