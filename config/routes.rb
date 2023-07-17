@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :customers, only: [:show, :index, :update, :edit]
     resources :post_images  do
       resources :post_comments, only: [:create, :destroy]
+      resource :favorites, only: [:create, :destroy]
     end
   get '/search', to: 'searches#search'
   end

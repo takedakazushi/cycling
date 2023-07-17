@@ -6,12 +6,11 @@ class Public::PostCommentsController < ApplicationController
     comment.save
     redirect_to post_image_path(post_image)
   end
-  
+
   def destroy
     PostComment.find(params[:id]).destroy
     redirect_to post_image_path(params[:post_image_id])
   end
-
   private
 
   def post_comment_params

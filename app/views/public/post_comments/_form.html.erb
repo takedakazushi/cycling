@@ -1,17 +1,11 @@
-<h1>投稿フォーム</h1>
-<%= form_with model: @post_image do |f| %>
-  <h4>画像</h4>
-  <%= f.file_field :image, accept: "image/*" %>
-  <h4>コース名</h4>
-  <%= f.text_field :couse_name %>
-  <h4>説明</h4>
-  <%= f.text_area :caption %>
-  <%= f.submit '投稿' %>
-  <div id="post_raty"></div>
+<%= form_with(model:[post_image, post_image_comment], local: false) do |f| %>
+  <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに", class: "w-100 comment-textarea" %>
+  <%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+<% end %>
 <script>
   // scriptファイルをどのidの部分に配置するかを指定
   let elem = document.querySelector('#post_raty');
-  let opt = {
+  let opt = { 
     starOff:  '<%= asset_path('star-off.png') %>',
    starOn : '<%= asset_path('star-on.png') %>',
    starHalf: '<%= asset_path('star-half.png') %>',
@@ -21,4 +15,3 @@
    };
   raty(elem,opt);
 </script>
-<% end %>

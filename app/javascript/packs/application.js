@@ -11,8 +11,19 @@ import "channels"
 import "jquery";
 import "popper.js";
 import "bootstrap";
-import "../stylesheets/application"; 
+import "../stylesheets/application";
+
+
+
+ import Raty from "raty.js"
+
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+ window.raty = function(elem,opt) {
+  let raty =  new Raty(elem,opt);
+  raty.init();
+  return raty;
+}

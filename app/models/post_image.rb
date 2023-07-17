@@ -2,6 +2,7 @@ class PostImage < ApplicationRecord
   has_one_attached :image
   belongs_to :customer
   has_many :post_comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   def get_image
     unless image.attached?
@@ -10,16 +11,20 @@ class PostImage < ApplicationRecord
     end
     image
   end
-  
+
   def self.search_for(content, method)
     if method == 'perfect'
-      PostImage.where(title: content)
+      PostImage.where(caption: content)
     elsif method == 'forward'
-      PostImage.where('title LIKE ?', content+'%')
+      PostImage.where('caption LIKE ?', content+'%')
     elsif method == 'backward'
-      PostImage.where('title LIKE ?', '%'+content)
+      PostImage.where('caption LIKE ?', '%'+content)
     else
-      PostImage.where('title LIKE ?', '%'+content+'%')
+      PostImage.where('caption LIKE ?', '%'+content+'%')
     end
+  end
+
+  def favorited_by?(user)
+    favorites.exists?(customer_id: customer.id)
   end
 end

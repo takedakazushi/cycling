@@ -18,10 +18,26 @@
     <%= post_comment.customer.last_name %>
     <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
     <% if post_comment.customer == current_customer %>
-      <%= link_to "削除", post_image_post_comment_path(post_comment.post_image, post_comment), method: :delete %>
+      <%#= link_to "削除", post_image_post_comment_path(post_comment.post_image, post_comment), method: :delete %>
+      <%= button_to "削除", post_image_post_comment_path(post_comment.post_image, post_comment), method: :delete %>
     <% end %>
+      <% if @post_image.favorited_by?(current_customer) %>
+    <p>
+      <%= link_to post_image_favorites_path(@post_image), method: :delete do %>
+        ♥<%= @post_image.favorites.count %> いいね
+      <% end %>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to post_image_favorites_path(@post_image), method: :post do %>
+        ♡<%= @post_image.favorites.count %> いいね
+      <% end %>
+    </p>
+
+  <% end %>
   <% end %>
 </div>
+  <div id="post_raty"></div>
 <div>
   <%= form_with model: [@post_image, @post_comment] do |f| %>
     <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
@@ -29,3 +45,16 @@
   <% end %>
 </div>
 </div>
+<script>
+  // scriptファイルをどのidの部分に配置するかを指定
+  let elem = document.querySelector('#post_raty');
+  let opt = { 
+    starOff:  '<%= asset_path('star-off.png') %>',
+   starOn : '<%= asset_path('star-on.png') %>',
+   starHalf: '<%= asset_path('star-half.png') %>',
+   scoreName: 'post[rate]',
+   half: true,
+    //星画像の指定などのオプションをここに記述,
+   };
+  raty(elem,opt);
+</script>
