@@ -7,6 +7,9 @@ class Customer < ApplicationRecord
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
+  validates :full_name, length: { minimum: 2, maximum: 20 }, uniqueness: true
+  validates :introduction, length: {maximum: 50}
+
   has_one_attached :profile_image
 
   def get_profile_image(width, height)

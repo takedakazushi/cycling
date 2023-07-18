@@ -1,18 +1,23 @@
 <table class='table'>
   <thead>
     <tr>
-      <th>image</th>
-      <th>name</th>
+      <th>CouseName</th>
+      <th>Caption</th>
+      <th>Tag</th>
       <th colspan="3"></th>
     </tr>
   </thead>
   <tbody>
-    <%# byebug %>
     <% post_images.each do |post_image| %>
       <tr>
-        <td><%= image_tag customer.get_profile_image, size: '50x50' %></td>
-        <td><%= customer.full_name %></td>
-        <td><%= link_to 'Show', customer, class: "customer_#{customer.id}" %></td>
+        <td><%= link_to(post_image.customer) do %>
+          <%= image_tag post_image.customer.get_profile_image(50,50), size:'50x50' %>
+          <% end %>
+        </td>
+        <td><%= link_to post_image.couse_name,post_image, class: "post_image_#{post_image.id}" %></td>
+        <td><%= post_image.caption %></td>
+        <td>コメント数: <%= post_image.post_comments.count %></td>
+        <td><%#= render "favorites/btn", post_image: post_image %></td>
       </tr>
     <% end %>
   </tbody>

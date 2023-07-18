@@ -8,6 +8,8 @@
          <%= link_to "Log in", new_customer_session_path, class: 'col-lg-4 nav-link text btn btn-success' %>
         <div class="row">
          <%= link_to "Sign up", new_customer_registration_path, class: ' col-lg-4 nav-link text btn btn-primary' %>
+        <div class="row">
+         <%= link_to 'ゲストログイン（閲覧用）', homes_guest_sign_in_path, method: :post %>
         </div>
       </div>
     </div>

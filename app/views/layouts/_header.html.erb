@@ -7,9 +7,10 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
-
-
     <% if customer_signed_in? %>
+        <div class="d-flex justify-content-center mb-2">
+          <%= render 'public/searches/form' %>
+        </div>
         <li>
         <%= link_to '投稿フォーム', new_post_image_path %>
         </li>
@@ -38,8 +39,8 @@
           </li>
            <% else %>
           <li class="ml-4">
-            <%= link_to about_path,class: 'nav-link text-light' do %>
-              About
+            <%= link_to new_guest_path,class: 'nav-link text-light' do %>
+              new_guest
             <% end %>
           </li>
            <li class="ml-4">

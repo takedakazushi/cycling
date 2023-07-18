@@ -4,6 +4,12 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     get '/about', to: 'homes#about'
+    post '/homes/guest_sign_in', to: 'homes#new_guest'
+    # devise_for :users を次に置き換える
+    # devise_for :customers, controllers: {
+    # registrations: 'custromers/registrations'
+  # }
+
     resources :customers, only: [:show, :index, :update, :edit]
     resources :post_images  do
       resources :post_comments, only: [:create, :destroy]

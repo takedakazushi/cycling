@@ -1,21 +1,15 @@
-<div class="container">
-<!-- ユーザーの詳細 -->
-<div>
-  <h3><%= @customer.id %></h3>
-  <%= image_tag @customer.get_profile_image(100,100) %>
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <div class='col-md-3'>
+      <h2>Customer info</h2>
+      <%= render 'info', customer: @customer %>
+      <h2 class="mt-3">New cycling</h2>
+      <%= render 'public/post_images/form', post_image: @post_image %>
+    </div>
+    <div class='col-md-8 offset-md-1'>
+      <h2>Post_Images</h2>
+      <%= render 'public/post_images/index',post_images: @post_images %>
+    </div>
+  </div>
 </div>
 
-<!-- ユーザーの投稿一覧 -->
-
-<% @post_images.each do |post_image| %>
-<div>
-  <%= link_to post_image_path(post_image.id) do %>
-    <%= image_tag post_image.get_image %>
-  <% end %>
-  <p>投稿ユーザー画像：<%= image_tag post_image.customer.get_profile_image(100,100) %></p>
-  <p>コース名：<%= post_image.couse_name %></p>
-  <p>説明：<%= post_image.caption %></p>
-  <p>ユーザーネーム：<%= post_image.customer.last_name %></p>
-  <p><%= link_to "#{post_image.post_comments.count} コメント", post_image_path(post_image.id) %></p>
-</div>
-<% end %>

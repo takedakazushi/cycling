@@ -6,15 +6,23 @@ class Public::PostImagesController < ApplicationController
   def create
     @post_image = PostImage.new(post_image_params)
     @post_image.customer_id = current_customer.id
-    @post_image.save!
-    redirect_to post_images_path
+    if @post_image.save!
+    redirect_to post_images_path(@book), notice: "You have created book successfully."
+    else
+      @post_images = PostImage.all
+      render 'index'
+    end 
   end
   def index
     @post_images = PostImage.all
+    @customer = current_customer
+    @post_image = PostImage.new
   end
 
   def show
+    @post_images = PostImage.all
     @post_image = PostImage.find(params[:id])
+    @newcycling = PostImage.new
     @post_comment = PostComment.new
   end
 
