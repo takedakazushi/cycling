@@ -6,12 +6,12 @@ class Public::PostImagesController < ApplicationController
   def create
     @post_image = PostImage.new(post_image_params)
     @post_image.customer_id = current_customer.id
-    if @post_image.save!
-    redirect_to post_images_path(@book), notice: "You have created book successfully."
+    if @post_image.save
+    redirect_to post_images_path(@post_image), notice: "You have created book successfully."
     else
       @post_images = PostImage.all
       render 'index'
-    end 
+    end
   end
   def index
     @post_images = PostImage.all
@@ -39,6 +39,13 @@ class Public::PostImagesController < ApplicationController
     post_image = PostImage.find(params[:id])
     post_image.destroy
     redirect_to post_images_path
+  end
+
+  def create
+    @post_image = PostImage.new(post_image_params)
+    @post_image.customer_id = current_customer.id
+    @post_image.save!
+    redirect_to post_image_path(@post_image.id)
   end
   # 投稿データのストロングパラメータ
   private
