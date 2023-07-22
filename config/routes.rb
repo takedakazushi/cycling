@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     # devise_for :customers, controllers: {
     # registrations: 'custromers/registrations'
   # }
+     devise_scope :customer do
+    post 'customers/guest_sign_in', to: 'customers/sessions#new_guest'
+  end
 
     resources :customers, only: [:show, :index, :update, :edit]
     resources :post_images  do

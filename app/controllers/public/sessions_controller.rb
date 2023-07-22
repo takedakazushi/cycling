@@ -3,9 +3,7 @@
 class Public::SessionsController < Devise::SessionsController
    before_action :configure_sign_in_params, only: [:create]
 
-     devise_scope :customer do
-    post 'customers/guest_sign_in', to: 'customers/sessions#new_guest'
-  end
+
 
   def new_guest
     customer = Customer.guest
