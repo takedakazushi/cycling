@@ -7,7 +7,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
 
   def check_guest
     if resource.email == 'guest@example.com'
-      redirect_to root_path, alert: 'ゲストユーザーは削除できません。'
+      redirect_to root_path, alert: 'ゲストユーザーは変更・削除できません。'
     end
     
   end
