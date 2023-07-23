@@ -1,1 +1,21 @@
-top
+<div class='container'>
+  <div class='row'>
+    <div class="p-3 mb-2 bg-light text-dark">会員一覧</div>
+    <table class='table'>
+      <thead>
+        <tr>
+          <th>登録日</th>
+          <th>会員</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @customers.each do |customer| %>
+          <tr>
+            <td><%= link_to customer.created_at.strftime("%Y/%m/%d %H:%M:%S"),edit_admin_customer_path(customer) %></td>
+            <td><%= customer.last_name + "　" + customer.first_name %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
