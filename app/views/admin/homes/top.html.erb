@@ -12,7 +12,7 @@
       <tbody>
         <% @customers.each do |customer| %>
           <tr>
-            <td><%= link_to customer.created_at.strftime("%Y/%m/%d %H:%M:%S"),edit_admin_customer_path(customer) %></td>
+            <td><%= link_to customer.created_at.strftime("%Y/%m/%d %H:%M:%S"),admin_customer_path(customer) %></td>
             <td><%= customer.last_name + "　" + customer.first_name %></td>
             <td></td>
           </tr>
