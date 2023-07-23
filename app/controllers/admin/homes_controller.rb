@@ -3,6 +3,7 @@ class Admin::HomesController < ApplicationController
 
   def top
        @customers = Customer.all
+       @post_images = PostImage.all
   end
 
 end

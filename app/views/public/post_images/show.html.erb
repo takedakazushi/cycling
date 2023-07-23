@@ -81,7 +81,7 @@
     <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
     <%= f.submit "送信する" %>
     <script>
-  // scriptファイルをどのidの部分に配置するかを指定
+  // scriptファイルをどのidの部分に配置するかを指定  85,86行目の記述でレビューを直接呼び出す
   let eleme = document.querySelector('#post_raty');
   let opti = {
     starOff:  '<%= asset_path('star-off.png') %>',
@@ -89,7 +89,6 @@
    starHalf: '<%= asset_path('star-half.png') %>',
    scoreName: 'post_comment[rate]',
    half: true,
-    //星画像の指定などのオプションをここに記述,
    };
   raty(eleme,opti);
 </script>
