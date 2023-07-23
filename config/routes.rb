@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :admins
+  devise_for :admins, :controllers => {
+    :sessions => 'admin/sessions'
+  }
   devise_for :customers
   scope module: :public do
     root to: 'homes#top'
@@ -9,7 +11,7 @@ Rails.application.routes.draw do
     # devise_for :customers, controllers: {
     # registrations: 'custromers/registrations'
   # }
-     devise_scope :customer do
+  devise_scope :customer do
     post 'customers/guest_sign_in', to: 'customers/sessions#new_guest'
   end
 

@@ -2,7 +2,7 @@
   <div class="p-3 mb-2 col-md-2 font-weight-bold bg-light text-dark">管理者ログイン</div><br>
 
   <div class="text-center">
-    <%= form_with model: @admin, url: admin_session_path, local: true do |f| %>
+    <%= form_with model: @admin, url: new_admin_session_path, local: true do |f| %>
     <div class="form-group">
       <div class="row">
         <div class="col-lg-3"><%= f.label :email,"メールアドレス" %></div>
