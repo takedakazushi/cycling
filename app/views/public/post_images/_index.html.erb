@@ -17,7 +17,7 @@
         <td><%= link_to post_image.couse_name,post_image, class: "post_image_#{post_image.id}" %></td>
         <td><%= post_image.caption %></td>
         <td>コメント数: <%= post_image.post_comments.count %></td>
-        <td><%#= render "favorites/btn", post_image: post_image %></td>
+        <td><%= render "public/favorites/btn", post_image: post_image %></td>
       </tr>
     <% end %>
   </tbody>

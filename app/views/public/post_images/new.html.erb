@@ -7,18 +7,4 @@
   <h4>説明</h4>
   <%= f.text_area :caption %>
   <%= f.submit '投稿' %>
-  <div id="post_raty"></div>
-<script>
-  // scriptファイルをどのidの部分に配置するかを指定
-  let elem = document.querySelector('#post_raty');
-  let opt = {
-    starOff:  '<%= asset_path('star-off.png') %>',
-   starOn : '<%= asset_path('star-on.png') %>',
-   starHalf: '<%= asset_path('star-half.png') %>',
-   scoreName: 'post[rate]',
-   half: true,
-    //星画像の指定などのオプションをここに記述,
-   };
-  raty(elem,opt);
-</script>
 <% end %>

@@ -17,7 +17,7 @@ class Public::HomesController < ApplicationController
       # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
     end
     sign_in customer
-    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。マイページを押してください'
   end
 
 end

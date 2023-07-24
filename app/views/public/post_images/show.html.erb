@@ -20,7 +20,7 @@
           <td><%= @post_image.couse_name %></td>
           <td><%= @post_image.caption %></td>
           <td>コメント数: <%= @post_image.post_comments.count %></td>
-          <td><%#= render "favorites/btn", post_image: @post_image %></td>
+          <td><%= render "public/favorites/btn", post_image: @post_image %></td>
                     <% if @post_image.customer == current_customer %>
             <td><%= link_to 'Edit', edit_post_image_path(@post_image), class: "btn btn-sm btn-success edit_post_image_#{@post_image.id}" %></td>
             <td><%= link_to 'Destroy', @post_image, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_image_#{@post_image.id}"%></td>
@@ -60,6 +60,7 @@
 
   <% end %>
   <script>
+  
   // scriptファイルをどのidの部分に配置するかを指定
   new raty( document.querySelector('#comment_raty_<%= post_comment.id %>') ,{
     starOff:  '<%= asset_path('star-off.png') %>',
@@ -70,6 +71,7 @@
    half: true,
     //星画像の指定などのオプションをここに記述,
    });
+
 </script>
   <% end %>
 </div>
@@ -81,8 +83,12 @@
     <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
     <%= f.submit "送信する" %>
     <script>
+
+
   // scriptファイルをどのidの部分に配置するかを指定  85,86行目の記述でレビューを直接呼び出す
+   $(document).ready(function () {
   let eleme = document.querySelector('#post_raty');
+
   let opti = {
     starOff:  '<%= asset_path('star-off.png') %>',
    starOn : '<%= asset_path('star-on.png') %>',
@@ -91,6 +97,7 @@
    half: true,
    };
   raty(eleme,opti);
+   });
 </script>
   <% end %>
 </div>

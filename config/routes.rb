@@ -19,9 +19,10 @@ Rails.application.routes.draw do
     resources :post_images  do
       resources :post_comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
+      post 'confirm', on: :collection
+  end
     end
   get '/search', to: 'searches#search'
-  end
   # admin側ルーティング
   namespace :admin do
     get '' => 'homes#top'

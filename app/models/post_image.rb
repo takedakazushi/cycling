@@ -12,8 +12,8 @@ class PostImage < ApplicationRecord
     image
   end
   
-  def favorited_by?(customer)
-    favorites.where(customer_id: customer.id).exists?
+  def favorited_by?(target_customer)
+    favorites.where(customer_id: target_customer.id).exists?
   end
 
   def self.search_for(content, method)
@@ -27,8 +27,5 @@ class PostImage < ApplicationRecord
       PostImage.where('caption LIKE ?', '%'+content+'%')
     end
   end
-
-  def favorited_by?(user)
-    favorites.exists?(customer_id: customer.id)
-  end
+  
 end
