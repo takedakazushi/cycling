@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   end
     end
   get '/search', to: 'searches#search'
+  get 'maps/index', to: 'maps#index'
+  resources :maps, only: [:index]
   # admin側ルーティング
   namespace :admin do
     get '' => 'homes#top'

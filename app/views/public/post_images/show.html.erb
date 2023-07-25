@@ -60,7 +60,7 @@
 
   <% end %>
   <script>
-  
+
   // scriptファイルをどのidの部分に配置するかを指定
   new raty( document.querySelector('#comment_raty_<%= post_comment.id %>') ,{
     starOff:  '<%= asset_path('star-off.png') %>',
@@ -102,3 +102,5 @@
   <% end %>
 </div>
 </div>
+
+<%= render "public/maps/index" %>
