@@ -22,7 +22,7 @@ Rails.application.routes.draw do
       post 'confirm', on: :collection
   end
     end
-  get '/search', to: 'searches#search'
+  get '/search', to: 'public/searches#search'
   get 'maps/index', to: 'maps#index'
   resources :maps, only: [:index]
   # admin側ルーティング

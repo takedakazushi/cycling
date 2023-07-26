@@ -1,17 +1,18 @@
 <table class='table'>
   <thead>
     <tr>
+      <th>Image</th>
       <th>CouseName</th>
       <th>Caption</th>
       <th>Tag</th>
-      <th colspan="3"></th>
+
     </tr>
   </thead>
   <tbody>
     <% post_images.each do |post_image| %>
       <tr>
         <td><%= link_to(post_image.customer) do %>
-          <%= image_tag post_image.customer.get_profile_image(50,50), size:'50x50' %>
+          <%= image_tag post_image.get_image(50,50) %>
           <% end %>
         </td>
         <td><%= link_to post_image.couse_name,post_image, class: "post_image_#{post_image.id}" %></td>

@@ -10,7 +10,7 @@ class Public::PostImagesController < ApplicationController
     redirect_to post_images_path(@post_image), notice: "You have created book successfully."
     else
       @post_images = PostImage.all
-      render 'index'
+      render 'new'
     end
   end
   def index
@@ -44,8 +44,11 @@ class Public::PostImagesController < ApplicationController
   def create
     @post_image = PostImage.new(post_image_params)
     @post_image.customer_id = current_customer.id
-    @post_image.save!
+    if @post_image.save
     redirect_to post_image_path(@post_image.id)
+    else
+    render :new
+    end
   end
   # 投稿データのストロングパラメータ
   private
