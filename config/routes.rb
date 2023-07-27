@@ -29,5 +29,6 @@ Rails.application.routes.draw do
   namespace :admin do
     get '' => 'homes#top'
     resources :customers, only: [:show, :index, :update, :edit]
+    resources :post_images
   end
 end

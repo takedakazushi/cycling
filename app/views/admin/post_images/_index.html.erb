@@ -1,0 +1,29 @@
+test
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>CouseName</th>
+      <th>Caption</th>
+      <th>Tag</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <% post_images.each do |post_image| %>
+      <tr>
+        <td><%= link_to(post_image.customer) do %>
+          <%= image_tag post_image.get_image(50,50) %>
+          <% end %>
+        </td>
+        <% if customer_signed_in? %>
+        <td><%= link_to post_image.couse_name,post_image, class: "post_image_#{post_image.id}" %></td>
+        <% elsif admin_signed_in? %>
+        <td><%= link_to post_image.couse_name,admin_post_image_path(post_image, customer_id: post_image.customer.id), method: :delete, class: "post_image_#{post_image.id}" %></td>
+        <% end %>
+        <td><%= post_image.caption %></td>
+        <td>コメント数: <%= post_image.post_comments.count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

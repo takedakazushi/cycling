@@ -4,12 +4,9 @@
       <div class='col-md-3'>
         <h2>Customer info</h2>
         <%= render 'admin/customers/info', customer: current_customer%>
-        <h2 class="mt-3">New cycling</h2>
-        <%= render 'form', post_image: @post_image %>
-  </div>
+    </div>
     <div class='col-md-8 offset-md-1'>
       <h2>Post_images</h2>
-      <%= render 'index', post_images: @post_images%>
+      <%= render 'admin/post_images/edit', post_images: @post_images%>
     </div>
-  </div>
 </div>
