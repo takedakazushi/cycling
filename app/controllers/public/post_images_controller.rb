@@ -44,7 +44,11 @@ class Public::PostImagesController < ApplicationController
   def create
     @post_image = PostImage.new(post_image_params)
     @post_image.customer_id = current_customer.id
+    tags = Vision.get_image_data(post_image_params[:image])
     if @post_image.save
+      tags.each do |tag|
+      @post_image.tags.create(name: tag)
+    end
     redirect_to post_image_path(@post_image.id)
     else
     render :new

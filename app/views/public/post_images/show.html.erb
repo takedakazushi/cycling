@@ -21,6 +21,11 @@
             <td><%= image_tag @post_image.image, size:"50x50" %></td>
             <td><%= @post_image.couse_name %></td>
             <td><%= @post_image.caption %></td>
+            <td>
+              <% @post_image.tags.each do |tag|%>
+              <%= tag.name %>
+              <% end %>
+            </td>
             <td>コメント数: <%= @post_image.post_comments.count %></td>
             <td><%= render "public/favorites/btn", post_image: @post_image %></td>
           <% if @post_image.customer == current_customer %>
